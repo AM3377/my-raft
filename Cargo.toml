@@ -1,0 +1,16 @@
+[package]
+name = "my-raft"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+prost = "0.13.5"
+rand = "0.9.1"
+tokio = { version = "1.45.1", features = ["full"] }
+tonic = "0.13.1"
+tracing = "0.1.41"
+tracing-subscriber = "0.3.19"
+
+[build-dependencies]
+tonic-build = "0.13.1"

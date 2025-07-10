@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package raft;
+
+service RaftService { rpc SendMessage(RaftMessage) returns (RaftMessage); }
+
+message RaftMessage {
+  string msg_type = 1;
+  uint64 term = 2;
+  uint64 from = 3;
+  uint64 to = 4;
+  uint64 last_log_index = 5;
+  uint64 last_log_term = 6;
+  bool granted = 7;
+  uint64 prev_log_index = 8;
+  uint64 prev_log_term = 9;
+  repeated LogEntry entries = 10;
+  uint64 leader_commit = 11;
+}
+
+message LogEntry {
+  uint64 index = 1;
+  uint64 term = 2;
+  bytes data = 3;
+}
